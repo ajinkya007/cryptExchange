@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration scan="true">
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d %-5level %-35logger{35} [%M{32}] - %msg %ex{10} %n</Pattern>
+        </encoder>
+    </appender>
+
+    <Console name="STDOUT" target="SYSTEM_OUT">
+        <PatternLayout pattern="%m%n"/>
+    </Console>
+
+    <root level="DEBUG">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+</Configuration>

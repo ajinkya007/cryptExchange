@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration scan="true">
+
+    <appender name="FILE" class="ch.qos.logback.core.RollingFileAppender">
+        <file>${LOGDIR}/${PROGNAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover-->
+            <fileNamePattern>${LOGDIR}/%d{yyyy-MM}/${PROGNAME}.log-%d{yyyy-MM-dd-mm}-%i.zip</fileNamePattern>
+
+            <!-- size rollover-->
+            <timeBasedFileNamingAndTRiggeringPOlicy class="ch.qos.logback.core..rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>200MB</maxFileSize>
+            </timeBasedFileNamingAndTRiggeringPOlicy>
+
+
+        </rollingPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d %-5level %-35logger{35} [%M{32}] - %msg %ex{10} %n</Pattern>
+        </encoder>
+
+    </appender>
+
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</Configuration>
